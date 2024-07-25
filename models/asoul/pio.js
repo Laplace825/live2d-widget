@@ -7,11 +7,11 @@
 
 一个支持更换 Live2D 模型的 Typecho 插件。
 
-本代码为奇趣保罗原创，并遵守 GPL 2.0 开源协议。欢迎访问我的博客：https://paugram.com
+本代码为奇趣保罗原创，并遵守 GPL 2.0 开源协议。欢迎访问博客：https://paugram.com
 
 ---- */
 
-var Paul_Pio = function (prop) {
+var Paul_Pio = function(prop) {
     var that = this;
 
     var current = {
@@ -25,22 +25,22 @@ var Paul_Pio = function (prop) {
     /* - 方法 */
     var modules = {
         // 更换模型
-        idol: function () {
+        idol: function() {
             current.idol < (prop.model.length - 1) ? current.idol++ : current.idol = 0;
             return current.idol;
         },
         // 创建内容
-        create: function (tag, prop) {
+        create: function(tag, prop) {
             var e = document.createElement(tag);
             if (prop.class) e.className = prop.class;
             return e;
         },
         // 随机内容
-        rand: function (arr) {
+        rand: function(arr) {
             return arr[Math.floor(Math.random() * arr.length + 1) - 1];
         },
         // 创建对话框方法
-        render: function (text) {
+        render: function(text) {
             if (text.constructor === Array) {
                 dialog.innerHTML = modules.rand(text);
             }
@@ -54,17 +54,17 @@ var Paul_Pio = function (prop) {
             dialog.classList.add("active");
 
             clearTimeout(this.t);
-            this.t = setTimeout(function () {
+            this.t = setTimeout(function() {
                 dialog.classList.remove("active");
             }, 3000);
         },
         // 移除方法
-        destroy: function () {
+        destroy: function() {
             that.initHidden();
             localStorage.setItem("posterGirl", 0);
         },
         // 是否为移动设备
-        isMobile: function () {
+        isMobile: function() {
             var ua = window.navigator.userAgent.toLowerCase();
             ua = ua.indexOf("mobile") || ua.indexOf("android") || ua.indexOf("ios");
 
@@ -91,7 +91,7 @@ var Paul_Pio = function (prop) {
     /* - 提示操作 */
     var action = {
         // 欢迎
-        welcome: function () {
+        welcome: function() {
             if (document.referrer !== "" && document.referrer.indexOf(current.root) === -1) {
                 var referrer = document.createElement('a');
                 referrer.href = document.referrer;
@@ -135,82 +135,82 @@ var Paul_Pio = function (prop) {
             }
         },
         // 触摸
-        touch: function () {
-            current.canvas.onclick = function () {
+        touch: function() {
+            current.canvas.onclick = function() {
                 modules.render(prop.content.touch || ["你在干什么？", "再摸我就报警了！", "HENTAI!", "不可以这样欺负我啦！"]);
             };
         },
         // 右侧按钮
-        buttons: function () {
+        buttons: function() {
             // 返回首页
-            elements.home.onclick = function () {
+            elements.home.onclick = function() {
                 location.href = current.root;
             };
-            elements.home.onmouseover = function () {
+            elements.home.onmouseover = function() {
                 modules.render(prop.content.home || "点击这里回到首页！");
             };
             current.menu.appendChild(elements.home);
 
             // 更换模型
-            elements.skin.onclick = function () {
+            elements.skin.onclick = function() {
                 that.model = loadlive2d("pio", prop.model[modules.idol()], model => {
                     prop.onModelLoad && prop.onModelLoad(model)
                     prop.content.skin && prop.content.skin[1] ? modules.render(prop.content.skin[1]) : modules.render("新衣服真漂亮~");
                 });
             };
-            elements.skin.onmouseover = function () {
+            elements.skin.onmouseover = function() {
                 prop.content.skin && prop.content.skin[0] ? modules.render(prop.content.skin[0]) : modules.render("想看看我的新衣服吗？");
             };
             if (prop.model.length > 1) current.menu.appendChild(elements.skin);
 
             // 关于我
-            elements.info.onclick = function () {
+            elements.info.onclick = function() {
                 window.open(prop.content.link || "https://paugram.com/coding/add-poster-girl-with-plugin.html");
             };
-            elements.info.onmouseover = function () {
+            elements.info.onmouseover = function() {
                 modules.render("想了解更多关于我的信息吗？");
             };
             current.menu.appendChild(elements.info);
 
             // 夜间模式
             if (prop.night) {
-                elements.night.onclick = function () {
+                elements.night.onclick = function() {
                     eval(prop.night);
                 };
-                elements.night.onmouseover = function () {
+                elements.night.onmouseover = function() {
                     modules.render("夜间点击这里可以保护眼睛呢");
                 };
                 current.menu.appendChild(elements.night);
             }
 
             // 关闭看板娘
-            elements.close.onclick = function () {
+            elements.close.onclick = function() {
                 modules.destroy();
             };
-            elements.close.onmouseover = function () {
+            elements.close.onmouseover = function() {
                 modules.render(prop.content.close || "QWQ 下次再见吧~");
             };
             current.menu.appendChild(elements.close);
         },
-        custom: function () {
-            prop.content.custom.forEach(function (t) {
+        custom: function() {
+            prop.content.custom.forEach(function(t) {
                 if (!t.type) t.type = "default";
                 var e = document.querySelectorAll(t.selector);
 
                 if (e.length) {
                     for (var j = 0; j < e.length; j++) {
                         if (t.type === "read") {
-                            e[j].onmouseover = function () {
+                            e[j].onmouseover = function() {
                                 modules.render("想阅读 %t 吗？".replace(/%t/, "“" + this.innerText + "”"));
                             }
                         }
                         else if (t.type === "link") {
-                            e[j].onmouseover = function () {
+                            e[j].onmouseover = function() {
                                 modules.render("想了解一下 %t 吗？".replace(/%t/, "“" + this.innerText + "”"));
                             }
                         }
                         else if (t.text) {
-                            e[j].onmouseover = function () {
+                            e[j].onmouseover = function() {
                                 modules.render(t.text);
                             }
                         }
@@ -222,17 +222,17 @@ var Paul_Pio = function (prop) {
 
     /* - 运行 */
     var begin = {
-        static: function () {
+        static: function() {
             current.body.classList.add("static");
         },
-        fixed: function () {
+        fixed: function() {
             action.touch(); action.buttons();
         },
-        draggable: function () {
+        draggable: function() {
             action.touch(); action.buttons();
 
             var body = current.body;
-            body.onmousedown = function (downEvent) {
+            body.onmousedown = function(downEvent) {
                 var location = {
                     x: downEvent.clientX - this.offsetLeft,
                     y: downEvent.clientY - this.offsetTop
@@ -247,7 +247,7 @@ var Paul_Pio = function (prop) {
                 }
 
                 document.addEventListener("mousemove", move);
-                document.addEventListener("mouseup", function () {
+                document.addEventListener("mouseup", function() {
                     body.classList.remove("active");
                     document.removeEventListener("mousemove", move);
                 });
@@ -256,7 +256,7 @@ var Paul_Pio = function (prop) {
     };
 
     // 运行
-    this.init = function (onlyText) {
+    this.init = function(onlyText) {
         if (!(prop.hidden && modules.isMobile())) {
             if (!onlyText) {
                 action.welcome();
@@ -276,11 +276,11 @@ var Paul_Pio = function (prop) {
     };
 
     // 隐藏状态
-    this.initHidden = function () {
+    this.initHidden = function() {
         current.body.classList.add("hidden");
         dialog.classList.remove("active");
 
-        elements.show.onclick = function () {
+        elements.show.onclick = function() {
             current.body.classList.remove("hidden");
             localStorage.setItem("posterGirl", 1);
             that.init();
