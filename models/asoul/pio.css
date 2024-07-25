@@ -11,13 +11,6 @@
 
 ---- */
 
-/* ----
-以上为原作者, 以下为修改
-# change: 在#pio处添加height ,防止模型过大
-# By: laplace
----- */
-
-
 .pio-container {
     bottom: 0;
     z-index: 52;
@@ -153,9 +146,7 @@
 }
 
 #pio {
-    /*laplace: 添加height ,防止模型过大 */
-height: 240px;
-vertical-align: middle
+    vertical-align: middle
 }
 
 @media screen and (max-width: 768px) {
