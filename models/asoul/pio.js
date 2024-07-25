@@ -165,7 +165,7 @@ var Paul_Pio = function(prop) {
 
             // 关于我
             elements.info.onclick = function() {
-                window.open(prop.content.link || "https://paugram.com/coding/add-poster-girl-with-plugin.html");
+                window.open(prop.content.link || "https://www.blog.lap-lace.top/index.html");
             };
             elements.info.onmouseover = function() {
                 modules.render("想了解更多关于我的信息吗？");
