@@ -1,27 +1,15 @@
-# Live2D Widget
+# A fork of Live2D Widget
 
-![](https://forthebadge.com/images/badges/built-with-love.svg)
-![](https://forthebadge.com/images/badges/uses-html.svg)
-![](https://forthebadge.com/images/badges/made-with-javascript.svg)
-![](https://forthebadge.com/images/badges/contains-cat-gifs.svg)
-![](https://forthebadge.com/images/badges/powered-by-electricity.svg)
-![](https://forthebadge.com/images/badges/makes-people-smile.svg)
+**原仓库地址** https://github.com/stevenjoezhang/live2d-widget
 
-[English](README.en.md)
+在原仓库基础上加上了models，内部文件来自:
+1. https://github.com/xiaoski/live2d_models_collection
+2. https://www.jsdelivr.com/package/gh/journey-ad/blog-img?tab=files&path=live2d
+
 
 ## 特性
 
 在网页中添加 Live2D 看板娘。兼容 PJAX，支持无刷新加载。
-
-<img src="assets/screenshot-2.png" width="280"><img src="assets/screenshot-3.png" width="280"><img src="assets/screenshot-1.png" width="270">
-
-（注：以上人物模型仅供展示之用，本仓库并不包含任何模型。）
-
-你也可以查看示例网页：
-
-- 在 [米米的博客](https://zhangshuqiao.org) 的左下角可查看效果
-- [demo.html](https://stevenjoezhang.github.io/live2d-widget/demo/demo.html)，展现基础功能
-- [login.html](https://stevenjoezhang.github.io/live2d-widget/demo/login.html)，仿 NPM 的登陆界面
 
 ## 使用
 
@@ -31,9 +19,6 @@
 ```
 添加代码的位置取决于你的网站的构建方式。例如，如果你使用的是 [Hexo](https://hexo.io)，那么需要在主题的模版文件中添加以上代码。对于用各种模版引擎生成的页面，修改方法类似。  
 如果网站启用了 PJAX，由于看板娘不必每页刷新，需要注意将该脚本放到 PJAX 刷新区域之外。
-
-**但是！我们强烈推荐自己进行配置，让看板娘更加适合你的网站！**  
-如果你有兴趣自己折腾的话，请看下面的详细说明。
 
 ## 配置
 
@@ -178,12 +163,3 @@ http://www.live2d.com/eula/live2d-open-software-license-agreement_en.html
 > The terms and conditions do prohibit modification, but obfuscating in `live2d.min.js` would not be considered illegal modification.
 
 https://community.live2d.com/discussion/140/webgl-developer-licence-and-javascript-question
-
-## 更新日志
-
-2018年10月31日，由 fghrsh 提供的原 API 停用，请更新至新地址。参考文章：  
-https://www.fghrsh.net/post/170.html
-
-2020年1月1日起，本项目不再依赖于 jQuery。
-
-2022年11月1日起，本项目不再需要用户单独加载 Font Awesome。
