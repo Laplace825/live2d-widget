@@ -1,3 +1,5 @@
+import "./pio.js"
+
 const Charming = [
   "https://space.bilibili.com/672328094",
   "https://www.bilibili.com/video/BV1FZ4y1F7HH",
@@ -226,6 +228,5 @@ function onModelLoad(model) {
 }
 
 
-import "./pio.js"
 var pio_reference
 window.onload = LoadAsoulDiana
