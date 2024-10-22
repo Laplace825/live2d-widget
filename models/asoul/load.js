@@ -1,6 +1,4 @@
-import "./pio.js"
-
-const Charming = [
+var 引流 = [
   "https://space.bilibili.com/672328094",
   "https://www.bilibili.com/video/BV1FZ4y1F7HH",
   "https://www.bilibili.com/video/BV1FX4y1g7u8",
@@ -20,13 +18,13 @@ const Charming = [
   "https://www.bilibili.com/video/BV1bi4y1P7Eh",
   "https://www.bilibili.com/video/BV1vQ4y1Z7C2",
   "https://www.bilibili.com/video/BV1oU4y1h7Sc",
-];
+]
 
 const initConfig = {
   mode: "fixed",
   hidden: true,
   content: {
-    link: Charming[Math.floor(Math.random() * Charming.length)],
+    link: 引流[Math.floor(Math.random() * 引流.length)],
     welcome: ["Hi!"],
     touch: "",
     skin: ["诶，想看看其他团员吗？", "替换后入场文本"],
@@ -46,7 +44,7 @@ const initConfig = {
   onModelLoad: onModelLoad
 }
 
-function LoadAsoulDiana() {
+function 加载圣·嘉然() {
   pio_reference = new Paul_Pio(initConfig)
 
   pio_alignment = "left"
@@ -229,4 +227,4 @@ function onModelLoad(model) {
 
 
 var pio_reference
-window.onload = LoadAsoulDiana
+window.onload = 加载圣·嘉然
