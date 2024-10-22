@@ -11,7 +11,7 @@
 
 ---- */
 
-var Paul_Pio = function(prop) {
+const Paul_Pio = function(prop) {
     var that = this;
 
     var current = {

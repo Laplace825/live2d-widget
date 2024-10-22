@@ -1,4 +1,4 @@
-var Charming = [
+const Charming = [
   "https://space.bilibili.com/672328094",
   "https://www.bilibili.com/video/BV1FZ4y1F7HH",
   "https://www.bilibili.com/video/BV1FX4y1g7u8",
@@ -18,7 +18,7 @@ var Charming = [
   "https://www.bilibili.com/video/BV1bi4y1P7Eh",
   "https://www.bilibili.com/video/BV1vQ4y1Z7C2",
   "https://www.bilibili.com/video/BV1oU4y1h7Sc",
-]
+];
 
 const initConfig = {
   mode: "fixed",
@@ -226,5 +226,6 @@ function onModelLoad(model) {
 }
 
 
+import "./pio.js"
 var pio_reference
 window.onload = LoadAsoulDiana
